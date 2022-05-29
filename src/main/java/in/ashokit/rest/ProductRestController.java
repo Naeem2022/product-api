@@ -28,9 +28,10 @@ public class ProductRestController {
 		
 	}
 	@GetMapping(value="/products",produces= {"application/json","application/xml"})
-	public ResponseEntity<List<Product>> getAllProducts(){
+	public ResponseEntity<Product[]> getAllProducts(){
 		List<Product> list = productRepo.findAll();
-		return new ResponseEntity<List<Product>>(list,HttpStatus.OK);
+		Product[] products= list.toArray(new Product[list.size()]);
+		return new ResponseEntity<Product[]>(products,HttpStatus.OK);
 	}
 
 }
