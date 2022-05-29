@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import lombok.Data;
 @Data
 @Entity
+@XmlRootElement
 public class Product {
 	@Id
 	private Integer productId;
