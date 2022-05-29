@@ -1,5 +1,5 @@
 package in.ashokit.entity;
-
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
