@@ -19,7 +19,7 @@ public class ProductRestController {
 	@Autowired
 	private ProductRepository productRepo;
 	
-	@PostMapping(value="/product",consumes= {"application/json"})
+	@PostMapping(value="/product",consumes= {"application/json","application/xml"})
 	public ResponseEntity<String> addProduct(@RequestBody Product product){
 		String message=null;
 		productRepo.save(product);
@@ -27,7 +27,7 @@ public class ProductRestController {
 		return new ResponseEntity<String>(message,HttpStatus.CREATED);
 		
 	}
-	@GetMapping(value="/products",produces= {"application/json"})
+	@GetMapping(value="/products",produces= {"application/json","application/xml"})
 	public ResponseEntity<List<Product>> getAllProducts(){
 		List<Product> list = productRepo.findAll();
 		return new ResponseEntity<List<Product>>(list,HttpStatus.OK);
